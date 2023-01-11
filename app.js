@@ -67,10 +67,6 @@ app.use(
 );
 
 app.use(compression());
-
-app.use('/', (req, res) => {
-  res.end('App is up and running...')
-});
 app.use("/api/v1/events", eventRouter);
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/reservations", reservationRouter);
