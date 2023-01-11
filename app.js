@@ -18,7 +18,7 @@ const errorHandler = require("./controllers/errorController");
 
 const app = express();
 
-app.use(express.static(path.resolve(__dirname, "build")));
+// app.use(express.static(path.resolve(__dirname, "build")));
 
 app.enable("trust proxy");
 
@@ -67,6 +67,10 @@ app.use(
 );
 
 app.use(compression());
+
+app.use('/', (req, res) => {
+  res.end('Events app is up and running...')
+});
 app.use("/api/v1/events", eventRouter);
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/reservations", reservationRouter);
