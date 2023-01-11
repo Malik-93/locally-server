@@ -68,13 +68,13 @@ app.use(
 
 app.use(compression());
 
-app.use('/', (req, res) => {
-  res.end('Events app is up and running...')
-});
+
 app.use("/api/v1/events", eventRouter);
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/reservations", reservationRouter);
-
+app.use('/', (req, res) => {
+  res.end('Events app is up and running...')
+});
 
 // app.get("*", function (request, response) {
 //   response.sendFile(path.resolve(__dirname, "../frontend/build", "index.html"));
